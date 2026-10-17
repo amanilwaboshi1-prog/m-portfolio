@@ -1135,7 +1135,48 @@ body::before{
 
 </style>
 <style>
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}.project-card{overflow:hidden;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);box-shadow:0 15px 40px rgba(0,0,0,.14)}.project-image{position:relative;height:230px;overflow:hidden}.project-image img{width:100%;height:100%;object-fit:cover;display:block}.project-badge{position:absolute;left:14px;bottom:14px;padding:7px 11px;border-radius:999px;background:rgba(0,0,0,.68);color:#fff;font-size:.75rem;font-weight:700}.project-content{padding:24px}.project-type{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;opacity:.7}.project-content h3{margin:8px 0 10px}.project-content p{opacity:.78;line-height:1.6}.project-tags{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}.project-tags span{padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);font-size:.75rem}.project-actions{margin-top:10px}@media(max-width:600px){.project-image{height:200px}.project-content{padding:20px}}</style></head>
+
+/* Project gallery: always-visible interface illustrations. */
+#projets .projects-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+#projets .project-card{min-width:0;display:flex;flex-direction:column;overflow:hidden;border-radius:22px;background:var(--card);border:1px solid var(--line);box-shadow:0 15px 40px rgba(0,0,0,.14);transition:transform .25s,border-color .25s}
+#projets .project-card:hover{transform:translateY(-4px);border-color:rgba(155,92,255,.4)}
+#projets .project-cover{display:block;position:relative;margin:8px 8px 0;border:1px solid rgba(255,255,255,.12);border-radius:15px;overflow:hidden;background:#080d18}
+#projets .preview-chrome{display:flex;align-items:center;gap:5px;height:29px;padding:0 12px;background:#111522;border-bottom:1px solid #ffffff12}
+#projets .preview-chrome i{width:7px;height:7px;border-radius:50%;background:#ff6969}
+#projets .preview-chrome i:nth-child(2){background:#f5c659}
+#projets .preview-chrome i:nth-child(3){background:#6edb8b}
+#projets .preview-chrome span{margin-left:9px;font:10px var(--heading-font);color:#9da4b8;letter-spacing:.03em}
+#projets .project-scene{position:relative;aspect-ratio:600/370;overflow:hidden;background:#0b2117}
+#projets .project-scene svg{display:block;width:100%;height:100%;position:relative}
+#projets .forest-preview{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+#projets .project-content{display:flex;flex:1;flex-direction:column;padding:24px}
+#projets .project-type{font-size:10px;line-height:1.6;font-weight:700;text-transform:uppercase;letter-spacing:.10em;color:#b58aff}
+#projets .project-content h3{font-size:28px;margin:9px 0 12px;line-height:1.15}
+#projets .project-content p{font-size:14px;color:var(--muted);line-height:1.75;margin:0;opacity:1}
+#projets .project-tags{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0 24px}
+#projets .project-tags span{padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--muted);font-size:10px;font-weight:600;line-height:1.4}
+#projets .project-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:auto}
+#projets .project-actions .btn{width:auto;min-height:44px;padding:12px 17px;font-size:12px}
+#projets .project-source{display:inline-flex;align-items:center;gap:6px;min-height:44px;color:var(--text);font-size:12px;font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(155,92,255,.5)}
+#projets .project-source:hover{color:#b58aff}
+#projets a:focus-visible{outline:3px solid var(--primary);outline-offset:4px}
+#projets .project-cover:focus-visible{outline-offset:-4px}
+#projets .project-more{display:flex;align-items:center;justify-content:center;gap:12px;margin:30px 0 0;color:var(--muted);font-size:13px;line-height:1.6}
+#projets .project-more:before,#projets .project-more:after{content:'';height:1px;flex:1;background:var(--line)}
+#projets .project-more span{color:#b58aff;font-size:21px}
+body.light #projets .project-type{color:#7440b8}
+body.light #projets .project-source:hover{color:#7440b8}
+@media(max-width:760px){
+ #projets .projects-grid{grid-template-columns:minmax(0,1fr);gap:25px}
+ #projets .project-head>.link{display:inline-flex}
+ #projets .project-content{padding:21px}
+ #projets .project-content h3{font-size:26px}
+ #projets .project-card:hover{transform:none}
+ #projets .project-more{font-size:12px;gap:9px}
+}
+@media(max-width:360px){#projets .project-content{padding:17px}#projets .project-actions{gap:5px}#projets .project-actions .btn{padding:11px 12px}#projets .project-source{font-size:11px}}
+
+</style></head>
 
 <body>
 
@@ -1455,46 +1496,92 @@ body::before{
 
 
 <section class="section" id="projets">
-
-    <div class="heading project-head reveal">
-
-        <div>
-
-            <small>PROJETS</small>
-
-            <h2>
-                Des projets concrets,
-                <br>
-                <span class="gradient">pas seulement des promesses.</span>
-            </h2>
-
-        </div>
-
-        <a class="link" href="https://github.com/amanilwaboshi1-prog" target="_blank" rel="noopener">
-            Voir GitHub ↗
-        </a>
-
-    </div>
-
-
-    
-
-
-    <div class="more reveal">
-
-        <span class="more-icon">＋</span>
-
-        <div>
-            <b>D’autres projets arrivent</b>
-            <p>
-                Cette section évoluera avec mes prochaines applications,
-                expériences Python et solutions numériques.
-            </p>
-        </div>
-
-    </div>
-
-<div class="projects-grid"><article class="project-card"><div class="project-image"><img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=85" alt="Projet Green Space" loading="lazy"><span class="project-badge">HTML • CSS • JavaScript</span></div><div class="project-content"><span class="project-type">Site web associatif</span><h3>Green Space</h3><p>Une expérience web moderne conçue pour présenter clairement une association, ses actions et ses possibilités d’engagement.</p><div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive</span></div><div class="project-actions"><a class="btn btn-primary" href="https://amanilwaboshi1-prog.github.io/Green-space/" target="_blank" rel="noopener">Voir le projet ↗</a></div></div></article></div></section>
+ <div class="heading project-head reveal"><div><small>PROJETS</small><h2>Des projets concrets,<br><span class="gradient">pas seulement des promesses.</span></h2></div><a class="link" href="https://github.com/amanilwaboshi1-prog" target="_blank" rel="noopener noreferrer">Voir GitHub ↗</a></div>
+ <div class="projects-grid">
+<article class="project-card" aria-labelledby="project-orbita">
+ <a class="project-cover" href="https://amanilwaboshi1-prog.github.io/orbita/" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Orbita (nouvel onglet)">
+  <div class="preview-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Orbita · aperçu du projet</span></div>
+  <div class="project-scene" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 370" aria-hidden="true" focusable="false" font-family="Segoe UI,Arial,sans-serif">
+<defs>
+ <radialGradient id="orbita-bg"><stop stop-color="#14243a"/><stop offset="1" stop-color="#030610"/></radialGradient>
+ <linearGradient id="orbita-saturn" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#f5e0b6"/><stop offset=".45" stop-color="#c5ae83"/><stop offset="1" stop-color="#4c473e"/></linearGradient>
+ <radialGradient id="orbita-shade" cx=".26" cy=".22" r=".8"><stop offset=".3" stop-color="#fff5dc" stop-opacity=".15"/><stop offset=".7" stop-color="#000" stop-opacity=".1"/><stop offset="1" stop-color="#01040a" stop-opacity=".85"/></radialGradient>
+ <linearGradient id="orbita-small-shadow"><stop stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".65"/></linearGradient>
+ <clipPath id="orbita-sphere"><circle cx="303" cy="183" r="75"/></clipPath>
+ <clipPath id="orbita-rings-front"><path d="M 130 183 H 477 V 265 H 130 Z"/></clipPath>
+</defs>
+<rect width="600" height="370" fill="url(#orbita-bg)"/><circle cx="114" cy="12" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="250" cy="114" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="104" cy="279" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="432" cy="16" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="223" cy="119" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="27" cy="287" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="558" cy="214" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="284" cy="3" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="432" cy="174" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="220" cy="172" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="389" cy="49" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="270" cy="22" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="549" cy="63" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="565" cy="150" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="370" cy="295" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="71" cy="23" r="1" fill="#d9e6ff" opacity="0.2"/><circle cx="296" cy="40" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="389" cy="142" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="373" cy="83" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="214" cy="136" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="73" cy="311" r="1" fill="#d9e6ff" opacity="0.2"/><circle cx="546" cy="125" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="388" cy="138" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="570" cy="112" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="57" cy="117" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="410" cy="137" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="580" cy="161" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="511" cy="202" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="146" cy="135" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="574" cy="275" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="598" cy="219" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="370" cy="112" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="505" cy="46" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="156" cy="81" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="65" cy="197" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="479" cy="270" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="11" cy="58" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="273" cy="174" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="445" cy="80" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="269" cy="256" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="108" cy="152" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="203" cy="78" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="552" cy="271" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="331" cy="250" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="371" cy="157" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="246" cy="290" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="497" cy="35" r="1" fill="#d9e6ff" opacity="0.2"/><circle cx="131" cy="243" r="1" fill="#d9e6ff" opacity="0.2"/><circle cx="271" cy="270" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="216" cy="276" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="205" cy="159" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="382" cy="224" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="123" cy="126" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="346" cy="10" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="235" cy="301" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="72" cy="30" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="32" cy="169" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="243" cy="142" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="219" cy="276" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="584" cy="295" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="484" cy="208" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="99" cy="220" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="420" cy="239" r="1" fill="#d9e6ff" opacity="0.2"/><circle cx="100" cy="31" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="347" cy="55" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="194" cy="274" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="432" cy="93" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="255" cy="38" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="100" cy="25" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="15" cy="47" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="416" cy="248" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="410" cy="30" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="2" cy="199" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="292" cy="216" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="569" cy="249" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="303" cy="111" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="555" cy="31" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="58" cy="25" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="514" cy="271" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="520" cy="41" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="69" cy="120" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="583" cy="126" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="40" cy="317" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="597" cy="289" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="267" cy="104" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="321" cy="122" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="134" cy="153" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="74" cy="4" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="576" cy="51" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="218" cy="259" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="357" cy="35" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="291" cy="80" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="309" cy="313" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="8" cy="283" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="106" cy="68" r="0.7" fill="#d9e6ff" opacity="0.2"/><circle cx="109" cy="283" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="288" cy="309" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="351" cy="104" r="1" fill="#d9e6ff" opacity="0.55"/><circle cx="270" cy="258" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="52" cy="47" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="283" cy="22" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="133" cy="134" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="452" cy="282" r="1" fill="#d9e6ff" opacity="0.35"/><circle cx="574" cy="4" r="0.5" fill="#d9e6ff" opacity="0.2"/><circle cx="152" cy="279" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="596" cy="282" r="0.5" fill="#d9e6ff" opacity="0.35"/><circle cx="130" cy="21" r="0.7" fill="#d9e6ff" opacity="0.35"/><circle cx="40" cy="183" r="0.5" fill="#d9e6ff" opacity="0.55"/><circle cx="255" cy="52" r="0.7" fill="#d9e6ff" opacity="0.55"/><circle cx="416" cy="317" r="1" fill="#d9e6ff" opacity="0.2"/>
+<g stroke="#7799c0" stroke-opacity=".14" fill="none"><ellipse cx="292" cy="189" rx="245" ry="73" transform="rotate(-23 292 189)"/><ellipse cx="292" cy="189" rx="290" ry="100" transform="rotate(-23 292 189)"/></g>
+<path d="M0 40H600" stroke="#ffffff12"/>
+<g transform="translate(24 21)" stroke="#c5f477"><circle r="6" fill="#c5f477"/><ellipse rx="12" ry="4" transform="rotate(-28)" fill="none" stroke-width="1.3"/></g>
+<text x="44" y="26" fill="#f0f3f8" font-size="14" letter-spacing="2">ORBITA<tspan fill="#c5f477">.</tspan></text>
+<text x="484" y="25" fill="#a0aabe" font-size="8">Vue d’ensemble</text><text x="574" y="25" fill="#c5f477" font-size="13">?</text>
+<text x="23" y="76" fill="#91a2b8" font-size="7" letter-spacing="1.3">LE COIN DES PETITS ASTRONOMES</text>
+<text x="23" y="106" fill="#f0f3f8" font-size="24">Explore les</text><text x="23" y="135" fill="#c5f477" font-size="27">8 planètes.</text>
+<text x="23" y="155" fill="#a0aabe" font-size="8">Observe un monde. Lis sa fiche.</text><text x="23" y="168" fill="#a0aabe" font-size="8">Teste ce que tu as appris !</text>
+<circle cx="27" cy="190" r="2" fill="#c5f477"/><text x="36" y="193" fill="#b3c1d6" font-size="7">En orbite · Saturne</text>
+<g transform="rotate(-25 303 183)">
+ <ellipse cx="303" cy="183" rx="145" ry="46" fill="none" stroke="#9c9179" stroke-width="23"/>
+ <ellipse cx="303" cy="183" rx="157" ry="50" fill="none" stroke="#b4a68b" stroke-width="2"/>
+ <ellipse cx="303" cy="183" rx="138" ry="44" fill="none" stroke="#e4d2ad" stroke-width="5"/>
+ <ellipse cx="303" cy="183" rx="128" ry="40" fill="none" stroke="#796e5a" stroke-width="3"/>
+</g>
+<circle cx="303" cy="183" r="75" fill="url(#orbita-saturn)"/>
+<g clip-path="url(#orbita-sphere)" fill="none" stroke-linecap="round" transform="rotate(-9 303 183)">
+ <path d="M215 130Q300 155 390 135M212 156Q300 180 390 160M210 178Q300 204 391 185M210 207Q300 230 390 210M210 232Q300 251 390 235" stroke="#a68d69" stroke-width="8" opacity=".45"/>
+ <path d="M215 142Q300 163 390 146M210 191Q300 215 390 196M210 220Q300 240 390 223" stroke="#ead6b1" stroke-width="4" opacity=".4"/>
+</g><circle cx="303" cy="183" r="75" fill="url(#orbita-shade)"/>
+<g transform="rotate(-25 303 183)"><g clip-path="url(#orbita-rings-front)">
+ <ellipse cx="303" cy="183" rx="145" ry="46" fill="none" stroke="#c1b08f" stroke-width="23"/>
+ <ellipse cx="303" cy="183" rx="157" ry="50" fill="none" stroke="#cfc09e" stroke-width="2"/>
+ <ellipse cx="303" cy="183" rx="138" ry="44" fill="none" stroke="#e4d2ad" stroke-width="5"/>
+ <ellipse cx="303" cy="183" rx="128" ry="40" fill="none" stroke="#796e5a" stroke-width="3"/>
+</g></g>
+<rect x="458" y="70" width="127" height="207" rx="8" fill="#0b111d" fill-opacity=".94" stroke="#adbed425"/>
+<text x="470" y="90" fill="#c5f477" font-size="6" letter-spacing=".7">06 / GÉANTE GAZEUSE</text><text x="470" y="115" fill="#f0f3f8" font-size="23">Saturne</text>
+<text x="470" y="135" fill="#a0aabe" font-size="7">La planète aux anneaux !</text>
+<rect x="470" y="147" width="103" height="25" rx="4" fill="#c5f477"/><text x="477" y="163" fill="#15220a" font-size="8">Découvrir et jouer ↗</text>
+<text x="470" y="191" fill="#8190a6" font-size="7">Largeur à l’équateur</text><text x="470" y="206" fill="#e2e7ef" font-size="10">120 536 km</text>
+<path d="M470 217H573" stroke="#ffffff16"/><text x="470" y="234" fill="#8190a6" font-size="7">Un tour autour du Soleil</text><text x="470" y="249" fill="#e2e7ef" font-size="10">29,4 années terrestres</text>
+<rect x="183" y="279" width="237" height="24" rx="6" fill="#0b111d" stroke="#adbed425"/><text x="194" y="295" fill="#c5f477" font-size="8">Ⅱ Pause</text><text x="251" y="295" fill="#a0aabe" font-size="8">Vitesse 1×</text><text x="325" y="295" fill="#c5f477" font-size="8">◌ Orbites</text><text x="382" y="295" fill="#a0aabe" font-size="8">Noms</text>
+<rect x="13" y="309" width="574" height="56" rx="8" fill="#0b111ddd" stroke="#adbed425"/><circle cx="55" cy="330" r="9" fill="#aaa08e"/><circle cx="55" cy="330" r="9" fill="url(#orbita-small-shadow)"/><text x="55" y="351" fill="#b2c0d2" text-anchor="middle" font-size="8">Mercure</text><circle cx="125" cy="330" r="9" fill="#d9bd8b"/><circle cx="125" cy="330" r="9" fill="url(#orbita-small-shadow)"/><text x="125" y="351" fill="#b2c0d2" text-anchor="middle" font-size="8">Vénus</text><circle cx="195" cy="330" r="9" fill="#528ac4"/><circle cx="195" cy="330" r="9" fill="url(#orbita-small-shadow)"/><text x="195" y="351" fill="#b2c0d2" text-anchor="middle" font-size="8">Terre</text><circle cx="265" cy="330" r="9" fill="#b96943"/><circle cx="265" cy="330" r="9" fill="url(#orbita-small-shadow)"/><text x="265" y="351" fill="#b2c0d2" text-anchor="middle" font-size="8">Mars</text><circle cx="335" cy="330" r="9" fill="#c2a384"/><circle cx="335" cy="330" r="9" fill="url(#orbita-small-shadow)"/><text x="335" y="351" fill="#b2c0d2" text-anchor="middle" font-size="8">Jupiter</text><rect x="376" y="313" width="58" height="48" rx="6" fill="#c5f47712" stroke="#c5f47770"/><circle cx="405" cy="330" r="9" fill="#d2be98"/><circle cx="405" cy="330" r="9" fill="url(#orbita-small-shadow)"/><ellipse cx="405" cy="330" rx="16" ry="4" fill="none" stroke="#c7b693" stroke-width="2" transform="rotate(-25 405 330)"/><text x="405" y="351" fill="#c5f477" text-anchor="middle" font-size="8">Saturne</text><circle cx="475" cy="330" r="9" fill="#9bccd1"/><circle cx="475" cy="330" r="9" fill="url(#orbita-small-shadow)"/><text x="475" y="351" fill="#b2c0d2" text-anchor="middle" font-size="8">Uranus</text><circle cx="545" cy="330" r="9" fill="#4672b2"/><circle cx="545" cy="330" r="9" fill="url(#orbita-small-shadow)"/><text x="545" y="351" fill="#b2c0d2" text-anchor="middle" font-size="8">Neptune</text>
+</svg></div>
+ </a>
+ <div class="project-content">
+  <span class="project-type">Exploration 3D · Éducatif</span><h3 id="project-orbita">Orbita</h3>
+  <p>Explorer les 8 planètes, découvrir leurs secrets et apprendre en jouant.</p>
+  <div class="project-tags"><span>3D interactive</span><span>Fiches pédagogiques</span><span>Quiz</span></div>
+  <div class="project-actions"><a class="btn primary" href="https://amanilwaboshi1-prog.github.io/orbita/" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Orbita (nouvel onglet)">Voir le projet ↗</a><a class="project-source" href="https://github.com/amanilwaboshi1-prog/orbita" target="_blank" rel="noopener noreferrer" aria-label="Code source de Orbita sur GitHub (nouvel onglet)">Code source ↗</a></div>
+ </div>
+</article><article class="project-card" aria-labelledby="project-Green-space">
+ <a class="project-cover" href="https://amanilwaboshi1-prog.github.io/Green-space/" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Green Space (nouvel onglet)">
+  <div class="preview-chrome" aria-hidden="true"><i></i><i></i><i></i><span>Green Space · aperçu du projet</span></div>
+  <div class="project-scene" aria-hidden="true"><img class="forest-preview" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" width="1200" height="740" alt="" loading="lazy" decoding="async"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 370" aria-hidden="true" focusable="false" font-family="Arial,sans-serif">
+<defs><linearGradient id="green-overlay"><stop stop-color="#051d13" stop-opacity=".88"/><stop offset="1" stop-color="#051d13" stop-opacity=".17"/></linearGradient></defs>
+<rect width="600" height="370" fill="url(#green-overlay)"/>
+<rect width="600" height="14" fill="#09261a"/><text x="300" y="10" text-anchor="middle" fill="#dcefe4" font-size="6">Ensemble pour des forêts vivantes</text>
+<rect y="14" width="600" height="42" fill="#f7f6ef"/>
+<rect x="16" y="23" width="23" height="23" rx="7" fill="#197348"/><path d="M22 40Q20 27 34 27Q34 39 22 40M23 39L30 31" stroke="#e5f3e9" fill="none" stroke-width="1.4"/>
+<text x="46" y="39" fill="#09261a" font-size="13" font-weight="700">Green Space</text>
+<g fill="#395247" font-size="7"><text x="218" y="38">Nos actions</text><text x="282" y="38">Actualités</text><text x="340" y="38">S’engager</text><text x="399" y="38">À propos</text><text x="453" y="38">Contact</text></g>
+<rect x="513" y="25" width="72" height="22" rx="11" fill="#197348"/><text x="549" y="39" text-anchor="middle" fill="#fff" font-size="7" font-weight="700">Faire un don</text>
+<text x="28" y="106" fill="#b9e8ca" font-size="7" letter-spacing="1">ASSOCIATION POUR LA PROTECTION DES FORÊTS</text>
+<g fill="#fff" font-size="35" font-weight="700" letter-spacing="-1"><text x="27" y="150">Protéger les forêts.</text><text x="27" y="191">Préserver la vie.</text></g>
+<g fill="#e5eee8" font-size="10"><text x="28" y="217">Restaurer les écosystèmes, protéger la biodiversité</text><text x="28" y="234">et construire un avenir plus vert, ensemble.</text></g>
+<rect x="28" y="255" width="125" height="31" rx="16" fill="#197348"/><text x="90" y="275" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">Je veux m’engager →</text>
+<rect x="163" y="255" width="132" height="31" rx="16" fill="#fff"/><text x="229" y="275" text-anchor="middle" fill="#103b27" font-size="9" font-weight="700">Découvrir nos actions</text>
+<rect y="315" width="600" height="55" fill="#103b27"/>
+<g text-anchor="middle"><g font-size="17" font-weight="700" fill="#c8f0d5"><text x="75" y="340">12 500+</text><text x="225" y="340">18</text><text x="375" y="340">7 800+</text><text x="525" y="340">24</text></g><g font-size="7" fill="#d5e6dc"><text x="75" y="355">arbres plantés</text><text x="225" y="355">projets actifs</text><text x="375" y="355">personnes sensibilisées</text><text x="525" y="355">communautés partenaires</text></g></g>
+</svg></div>
+ </a>
+ <div class="project-content">
+  <span class="project-type">Site web associatif</span><h3 id="project-Green-space">Green Space</h3>
+  <p>Un site engagé pour protéger les forêts et mobiliser une communauté.</p>
+  <div class="project-tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Responsive</span></div>
+  <div class="project-actions"><a class="btn primary" href="https://amanilwaboshi1-prog.github.io/Green-space/" target="_blank" rel="noopener noreferrer" aria-label="Voir le projet Green Space (nouvel onglet)">Voir le projet ↗</a><a class="project-source" href="https://github.com/amanilwaboshi1-prog/Green-space" target="_blank" rel="noopener noreferrer" aria-label="Code source de Green Space sur GitHub (nouvel onglet)">Code source ↗</a></div>
+ </div>
+</article></div><p class="project-more"><span aria-hidden="true">＋</span>D’autres projets arrivent</p>
+</section>
 
 
 <section class="section" id="contact">
